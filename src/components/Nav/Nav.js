@@ -19,7 +19,7 @@ const Nav = () => {
                             user ? <>
                                 <li><Link onClick={logOut}>Log Out</Link></li>
                                 <li><Link to='/myreviews' >My Reviews</Link></li>
-                                <li><Link to='/addservices' >Add Service</Link></li>
+                                <li><Link to='/addservice' >Add Service</Link></li>
                             </>
                                 : <li><Link to='/login'>Log In</Link></li>
                         }
@@ -48,7 +48,7 @@ const Nav = () => {
                             <>
                                 <li><Link onClick={logOut}>Log Out</Link></li>
                                 <li><Link to='/myreviews' >My Reviews</Link></li>
-                                <li><Link to='/addservices' >Add Service</Link></li>
+                                <li><Link to='/addservice' >Add Service</Link></li>
                             </>
                             : <li><Link to='/login'>Log In</Link></li>
                     }

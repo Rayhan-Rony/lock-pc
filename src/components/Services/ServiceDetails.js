@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import Reviews from '../Reviews/Reviews';
@@ -36,6 +37,8 @@ const ServiceDetails = () => {
             .then(data => {
                 console.log(data)
             })
+        form.reset()
+        toast.success('Reviews Added Successfully')
     }
     return (
         <div>
@@ -58,7 +61,7 @@ const ServiceDetails = () => {
                         <form onSubmit={handleReview}>
                             <input type="text" name='name' readOnly defaultValue={user?.displayName} className="input w-1/2 mb-3 input-bordered" />
                             <input type="email" name='email' readOnly defaultValue={user?.email} className="input w-1/2 mb-3  input-bordered" /><br />
-                            <textarea name='message' className="textarea textarea-bordered w-full" placeholder="Type Your Review Here"></textarea>
+                            <textarea name='message' className="textarea textarea-bordered w-full" placeholder="Type Your Review Here" required></textarea>
                             <div className='text-center'>  <button className="btn btn-primary " type='submit'>Add Review</button></div>
                         </form>
 
