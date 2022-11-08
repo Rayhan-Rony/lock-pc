@@ -1,53 +1,86 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
+    const { signUpWithEmail, updateUserProfile } = useContext(AuthContext)
+    const [error, setError] = useState('')
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+        console.log(name, email, password, photo)
+        signUpWithEmail(email, password)
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                setError('')
+                handleUpdateUserProfile(name, photo)
+                form.reset()
+                toast.success('Sign Up Completed')
+            })
+            .catch(error => setError(error.message))
+
+    }
+    const handleUpdateUserProfile = (name, photo) => {
+        const profile = {
+            displayName: name,
+            photoURL: photo
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(err => setError(err.message))
+    }
     return (
-        <h1></h1>
-        // <form onSubmit={handleSubmit}>
 
-        //     <div className="hero-content flex-col lg:flex-row-reverse  lg:w-1/2 md:w-full mx-auto">
-        //         <div className="card flex-shrink-0 w-full  shadow-2xl bg-base-100 p-28">
-        //             <h1 className="text-3xl font-bold text-center">Register Now</h1>
-        //             <div className="card-body">
-        //                 <div className="form-control">
-        //                     <label className="label">
-        //                         <span className="label-text">Name</span>
-        //                     </label>
-        //                     <input type="text" name='name' placeholder="Enter Your Name" className="input input-bordered" required />
-        //                 </div>
-        //                 <div className="form-control">
-        //                     <label className="label">
-        //                         <span className="label-text">Email</span>
-        //                     </label>
-        //                     <input type="text" name='email' placeholder="Enter Your Email" className="input input-bordered" required />
-        //                 </div>
-        //                 <div className="form-control">
-        //                     <label className="label">
-        //                         <span className="label-text">Photo URL</span>
-        //                     </label>
-        //                     <input onChange={(e) => setP(e.target.value)} type="text" name='photo' placeholder="Enter Your Photo URL" className="input input-bordered" required />
-        //                 </div>
-        //                 <div className="form-control">
-        //                     <label className="label">
-        //                         <span className="label-text">Password</span>
-        //                     </label>
-        //                     <input type="password" name='password' placeholder="Enter Your Password" className="input input-bordered" required />
+        <form onSubmit={handleSubmit}>
 
-        //                 </div>
-        //                 <div className='text-red-400'>
-        //                     <p>{error}</p>
-        //                 </div>
-        //                 <div className="form-control mt-6">
+            <div className="hero-content flex-col lg:flex-row-reverse  lg:w-1/2 md:w-full mx-auto">
+                <div className="card flex-shrink-0 w-full  shadow-2xl bg-base-100 p-28">
+                    <h1 className="text-3xl font-bold text-center">Register Now</h1>
+                    <div className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="text" name='name' placeholder="Enter Your Name" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input type="text" name='email' placeholder="Enter Your Email" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo URL</span>
+                            </label>
+                            <input type="text" name='photo' placeholder="Enter Your Photo URL" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                            </label>
+                            <input type="password" name='password' placeholder="Enter Your Password" className="input input-bordered" required />
 
-        //                     <button type='submit' className="btn btn-primary">Register</button>
+                        </div>
+                        <div className='text-red-400'>
+                            <p>{error}</p>
+                        </div>
+                        <div className="form-control mt-6">
 
-        //                 </div>
+                            <button type='submit' className="btn btn-primary">Register</button>
+
+                        </div>
 
 
-        //             </div>
-        //         </div>
-        //     </div>
-        // </form>
+                    </div>
+                </div>
+            </div>
+        </form>
 
     );
 };

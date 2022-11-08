@@ -5,7 +5,7 @@ import ServiceCard from './ServiceCard';
 const Services = () => {
     const services = useLoaderData()
     return (
-        <div className=' grid grid-cols-3 gap-4'>
+        <div className=' grid lg:grid-cols-3 md:grid-cols-1 gap-4'>
 
             {
 

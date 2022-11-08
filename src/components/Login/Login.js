@@ -1,14 +1,38 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
+
 
 const Login = () => {
+    const { logInWithEmail, loginWithGoogle } = useContext(AuthContext)
+    const [error, setError] = useState('')
+    // console.log(user)
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+        logInWithEmail(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                setError('')
+                form.reset()
+                toast.success('Log in Succesfulll')
+            })
+            .catch(err => setError(err.message))
 
+    }
+    const handleSignInWithGoogle = () => {
+        loginWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                setError('')
+            })
+            .catch(err => setError(err.message))
     }
     return (
         <form onSubmit={handleSubmit}>
@@ -28,7 +52,7 @@ const Login = () => {
                             </label>
                             <input type="password" name='password' placeholder="Password" className="input input-bordered" />
                             <div className='text-red-400'>
-                                {/* <p>{error}</p> */}
+                                <p>{error}</p>
                             </div>
                             <label className="label">
                                 <p >If you haven't any account please <Link className="label-text-alt link link-hover text-blue-400" to='/register'>Register</Link></p>
@@ -37,10 +61,10 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button type='submit' className="btn btn-primary">Log in</button>
                         </div>
-                        {/* <div className="form-control mt-6">
+                        <div className="form-control mt-6">
                             <button onClick={handleSignInWithGoogle} className="btn btn-primary">Log With Google</button>
                         </div>
-                        <div className="form-control mt-6">
+                        {/* <div className="form-control mt-6">
                             <button onClick={handleSignInWithGitHub} className="btn btn-primary">Log With GitHub</button>
                         </div> */}
                     </div>

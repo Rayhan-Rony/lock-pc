@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Nav = () => {
+    const { user, logOut } = useContext(AuthContext)
+    console.log(user)
     return (
         <div className="navbar bg-base-100 mb-10 sticky top-0 z-50">
             <div className="navbar-start">
@@ -11,6 +14,10 @@ const Nav = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/services'>Services</Link></li>
+                        <li><Link to='/blogs'>Blogs</Link></li>
+                        {
+                            user ? <li><Link onClick={logOut}>Log Out</Link></li> : <li><Link to='/login'>Log In</Link></li>
+                        }
                         <li tabIndex={0}>
                             <a className="justify-between">
                                 Parent
@@ -18,6 +25,7 @@ const Nav = () => {
                             </a>
                             <ul className="p-2">
                                 <li><Link to='/services'>Services</Link></li>
+
                                 <li><a>Submenu 2</a></li>
                             </ul>
                         </li>
@@ -29,6 +37,10 @@ const Nav = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to='/services'>Services</Link></li>
+                    <li><Link to='/blogs'>Blogs</Link></li>
+                    {
+                        user ? <li><Link onClick={logOut}>Log Out</Link></li> : <li><Link to='/login'>Log In</Link></li>
+                    }
                     <li tabIndex={0}>
                         <a>
                             Parent
@@ -36,6 +48,7 @@ const Nav = () => {
                         </a>
                         <ul className="p-2">
                             <li><Link to='/services'>Services</Link></li>
+
                             <li><a>Submenu 2</a></li>
                         </ul>
                     </li>

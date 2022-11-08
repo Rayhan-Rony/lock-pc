@@ -10,7 +10,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <h1 className='text-4xl text-center font-medium mt-12'>Services</h1>
-            <div className='grid grid-cols-3 gap-4 mt-10'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-1 gap-4 mt-10'>
                 {
                     services.map(service => <ServicesDemo key={service._id} service={service}></ServicesDemo>)
                 }

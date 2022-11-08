@@ -2,17 +2,13 @@ import React from 'react';
 
 const Reviews = () => {
     return (
-        <div className="overflow-x-auto w-full mt-12">
+        <div className="overflow-x-auto w-full  mt-12">
             <h1 className='text-3xl text-center font-bold mb-4'>What Client Says</h1>
-            <table className="table w-full">
+            <table className="lg:table w-full">
 
                 <thead>
                     <tr>
-                        <th>
-                            <label>
-                                <input type="checkbox" className="checkbox" />
-                            </label>
-                        </th>
+
                         <th>Name</th>
                         <th>Address</th>
                         <th>Review</th>
@@ -22,11 +18,7 @@ const Reviews = () => {
                 <tbody>
 
                     <tr>
-                        <th>
-                            <label>
-                                <input type="checkbox" className="checkbox" />
-                            </label>
-                        </th>
+
                         <td>
                             <div className="flex items-center space-x-3">
                                 <div className="avatar">
