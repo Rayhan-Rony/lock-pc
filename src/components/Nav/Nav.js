@@ -16,7 +16,12 @@ const Nav = () => {
                         <li><Link to='/services'>Services</Link></li>
                         <li><Link to='/blogs'>Blogs</Link></li>
                         {
-                            user ? <li><Link onClick={logOut}>Log Out</Link></li> : <li><Link to='/login'>Log In</Link></li>
+                            user ? <>
+                                <li><Link onClick={logOut}>Log Out</Link></li>
+                                <li><Link to='/myreviews' >My Reviews</Link></li>
+                                <li><Link to='/addservices' >Add Service</Link></li>
+                            </>
+                                : <li><Link to='/login'>Log In</Link></li>
                         }
                         <li tabIndex={0}>
                             <a className="justify-between">
@@ -39,7 +44,13 @@ const Nav = () => {
                     <li><Link to='/services'>Services</Link></li>
                     <li><Link to='/blogs'>Blogs</Link></li>
                     {
-                        user ? <li><Link onClick={logOut}>Log Out</Link></li> : <li><Link to='/login'>Log In</Link></li>
+                        user ?
+                            <>
+                                <li><Link onClick={logOut}>Log Out</Link></li>
+                                <li><Link to='/myreviews' >My Reviews</Link></li>
+                                <li><Link to='/addservices' >Add Service</Link></li>
+                            </>
+                            : <li><Link to='/login'>Log In</Link></li>
                     }
                     <li tabIndex={0}>
                         <a>

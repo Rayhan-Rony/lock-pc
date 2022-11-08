@@ -9,7 +9,7 @@ const ServiceDetails = () => {
     const service = useLoaderData()
     const { service_name, img_url, description, price, service_id } = service
     // console.log(service) 
-    const { photoURL } = user
+
     const handleReview = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -17,6 +17,7 @@ const ServiceDetails = () => {
         const email = form.email.value;
         const message = form.message.value;
         // console.log(name, email, message, photoURL)
+        const { photoURL } = user
         const reviewer = {
             name: name,
             email: email,
@@ -49,7 +50,7 @@ const ServiceDetails = () => {
                     </div>
                 </div>
             </div>
-            <Reviews></Reviews>
+            <Reviews service_id={service_id}></Reviews>
             <div >
                 {
                     user ? <div className='mt-4'>
