@@ -1,6 +1,12 @@
-import React from 'react';
+import { data } from 'autoprefixer';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import { useLoaderData } from 'react-router-dom';
 
 const AddService = () => {
+    const services = useLoaderData()
+    const servicesCount = services.length
+    console.log(servicesCount)
     const handleAddService = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -10,8 +16,31 @@ const AddService = () => {
         const title = form.title.value;
         const description = form.description.value;
         const price = form.price.value;
-        console.log(name, id, photo, title, description, price)
+        // console.log(name, id, photo, title, description, price)
+        if (id <= servicesCount) {
+            return toast.error(`Service Id must be large than ${servicesCount}`)
+        }
 
+        const service = {
+            service_id: id,
+            service_name: name,
+            title: title,
+            img_url: photo,
+            description: description,
+            price: price
+        }
+        fetch(`http://localhost:5000/services`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(service)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+        // console.log(service)
+        toast.success('Service Added Succesfully')
+        form.reset()
     }
     return (
         <form onSubmit={handleAddService}>
