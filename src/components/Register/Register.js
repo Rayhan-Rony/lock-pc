@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
+import UseTitle from '../../layout/hooks/UseTitle';
 
 const Register = () => {
     const { signUpWithEmail, updateUserProfile } = useContext(AuthContext)
     const [error, setError] = useState('')
+    UseTitle('Register')
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target;

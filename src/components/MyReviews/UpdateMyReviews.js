@@ -2,12 +2,14 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Navigate, useLocation, useParams } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import UseTitle from '../../layout/hooks/UseTitle';
 
 const UpdateMyReviews = () => {
     const { id } = useParams()
     console.log(id)
     // const location = useLocation()
     const { user } = useContext(AuthContext)
+    UseTitle('Update My Reviews')
     // console.log(user)
     const handleReviewUpdate = (e) => {
         e.preventDefault()

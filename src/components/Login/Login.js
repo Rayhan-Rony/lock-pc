@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import UseTitle from '../../layout/hooks/UseTitle';
 
 
 const Login = () => {
@@ -10,6 +11,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/'
     const navigate = useNavigate()
     const [error, setError] = useState('')
+    UseTitle('Log in')
     // console.log(user)
     const handleSubmit = (e) => {
         e.preventDefault()

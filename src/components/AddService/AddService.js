@@ -2,11 +2,13 @@ import { data } from 'autoprefixer';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
+import UseTitle from '../../layout/hooks/UseTitle';
 
 const AddService = () => {
     const services = useLoaderData()
     const servicesCount = services.length
     console.log(servicesCount)
+    UseTitle('Add Services')
     const handleAddService = (e) => {
         e.preventDefault()
         const form = e.target;
