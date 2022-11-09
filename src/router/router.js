@@ -4,6 +4,7 @@ import Blogs from "../components/Blogs/Blogs";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import MyReviews from "../components/MyReviews/MyReviews";
+import UpdateMyReviews from "../components/MyReviews/UpdateMyReviews";
 import Register from "../components/Register/Register";
 import ServiceDetails from "../components/Services/ServiceDetails";
 import Services from "../components/Services/Services";
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([{
         {
             path: '/myreviews',
             element: <MyReviews></MyReviews>
+        },
+        {
+            path: '/updatereviews/:id',
+            element: <UpdateMyReviews></UpdateMyReviews>
         }
     ]
 }])

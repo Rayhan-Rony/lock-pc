@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const MySingleReview = ({ myReview }) => {
@@ -14,6 +15,11 @@ const MySingleReview = ({ myReview }) => {
             .then(data => console.log(data))
 
     }
+    // const handleUpdateReviews = (id) => {
+    //     console.log(id)
+
+
+    // }
     return (
         <div className="overflow-x-auto w-full  mt-5">
 
@@ -65,7 +71,7 @@ const MySingleReview = ({ myReview }) => {
 
             </table>
             <div className='text-end'>
-                <button className="btn btn-primary btn-xs mr-4">Edit Review</button>
+                <Link to={`/updatereviews/${_id}`}><button className="btn btn-primary btn-xs mr-4">Edit Review</button></Link>
                 <button onClick={() => handleDelete(_id)} className="btn btn-primary btn-xs">Delete Review</button>
             </div>
         </div>
