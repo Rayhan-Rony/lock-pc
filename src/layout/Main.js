@@ -5,11 +5,11 @@ import Nav from '../components/Nav/Nav';
 
 const Main = () => {
     return (
-        <>
+        <div >
             <Nav></Nav>
             <Outlet></Outlet>
             <Footer></Footer>
-        </>
+        </div>
     );
 };
 
