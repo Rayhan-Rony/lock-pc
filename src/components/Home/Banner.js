@@ -11,7 +11,7 @@ const Banner = () => {
 
                     <p className="mb-5">I am your leader in remote assistance!</p>
                     <p className="mb-5">Safe Pc solutions is a leader in remote assistance:diagnose and identify computer issues remotely.It is much more convenient than taking computer to the store to be fixed.I offer monthly technical support packages at a very low price.Call me today and see how i can help your computer perform at its best!</p>
-                    <button className="btn btn-primary">Contact Me</button>
+
                 </div>
             </div>
         </div>

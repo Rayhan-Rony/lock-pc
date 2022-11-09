@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -8,8 +8,15 @@ import Reviews from '../Reviews/Reviews';
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext)
     const service = useLoaderData()
+    const [reviews, setReviews] = useState([])
     const { service_name, img_url, description, price, service_id } = service
     // console.log(service) 
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews/${service_id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [service_id])
+    console.log(reviews)
 
     const handleReview = (e) => {
         e.preventDefault()
@@ -36,11 +43,19 @@ const ServiceDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
+                // if (data.acknowledged) {
+
+                // }
+
                 console.log(data)
             })
+
         form.reset()
         toast.success('Reviews Added Successfully')
     }
+
+
+
     return (
         <div>
             <div className="card card-compact  bg-base-100 mt-20 shadow-xl border">
@@ -54,7 +69,7 @@ const ServiceDetails = () => {
                     </div>
                 </div>
             </div>
-            <Reviews service_id={service_id}></Reviews>
+            <Reviews reviews={reviews}></Reviews>
             <div >
                 {
                     user ? <div className='mt-4'>

@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
 
 
-const MySingleReview = ({ myReview }) => {
+const MySingleReview = ({ myReview, handleDelete }) => {
     // const []
     console.log(myReview)
     const { _id, message, service_name } = myReview
 
-    const handleDelete = (id) => {
-        console.log(id)
-        fetch(`http://localhost:5000/reviews/${id}`, {
-            method: 'DELETE',
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
+    // const handleDelete = (id) => {
+    //     console.log(id)
+    //     fetch(`http://localhost:5000/reviews/${id}`, {
+    //         method: 'DELETE',
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => console.log(data))
 
-    }
+    // }
     // const handleUpdateReviews = (id) => {
     //     console.log(id)
 
