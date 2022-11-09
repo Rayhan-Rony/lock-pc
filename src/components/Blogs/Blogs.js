@@ -3,16 +3,27 @@ import React from 'react';
 const Blogs = () => {
     return (
         <div>
-            <h4>Q:What are the differences between SQL and NoSQL?</h4>
-            <p>Ans:***SQL pronounced as “S-Q-L” or as “See-Quel” is primarily called RDBMS or Relational Databases, whereas NoSQL is a Non-relational or Distributed Database.
+            <div className='bg-cyan-50 p-20 mb-5'>
+                <h4>Q:What are the differences between SQL and NoSQL?</h4>
+                <p>Ans:***SQL pronounced as “S-Q-L” or as “See-Quel” is primarily called RDBMS or Relational Databases, whereas NoSQL is a Non-relational or Distributed Database.
 
-                <br />
-                ***Comparing SQL vs NoSQL databases, SQL databases are table-based databases, whereas NoSQL databases can be document-based, key-value pairs, and graph databases.
-                <br />
-                ***SQL databases are vertically scalable, while NoSQL databases are horizontally scalable.   <br />
-                ***SQL databases have a predefined schema, whereas NoSQL databases use a dynamic schema for unstructured data.   <br />
-                *** Comparing NoSQL vs SQL performance, SQL requires specialized DB hardware for better performance while NoSQL uses commodity hardware.
-            </p>
+                    <br />
+                    ***Comparing SQL vs NoSQL databases, SQL databases are table-based databases, whereas NoSQL databases can be document-based, key-value pairs, and graph databases.
+                    <br />
+                    ***SQL databases are vertically scalable, while NoSQL databases are horizontally scalable.   <br />
+                    ***SQL databases have a predefined schema, whereas NoSQL databases use a dynamic schema for unstructured data.   <br />
+                    *** Comparing NoSQL vs SQL performance, SQL requires specialized DB hardware for better performance while NoSQL uses commodity hardware.
+                </p>
+            </div >
+            <div className='bg-cyan-50 p-20 mb-5'>
+
+            </div>
+            <div className='bg-cyan-50 p-20 mb-5'>
+
+            </div>
+            <div className='bg-cyan-50 p-20 mb-5'>
+
+            </div>
             <h4>Q:What is JWT, and how does it work?</h4>
             <p>Ans:
                 JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.<br />

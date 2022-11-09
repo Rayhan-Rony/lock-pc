@@ -24,7 +24,8 @@ const ServiceDetails = () => {
             email: email,
             message: message,
             photo: photoURL,
-            service_id: service_id
+            service_id: service_id,
+            service_name: service_name
         }
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
