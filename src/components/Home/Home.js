@@ -26,9 +26,8 @@ const Home = () => {
                     services.map(service => <ServicesDemo key={service._id} service={service}></ServicesDemo>)
                 }
             </div>
-            <div className="text-center mt-4">
-
-                <Link to='/services'> <button className="btn btn-primary text-lg">See All Services</button></Link>
+            <div className="text-center mt-10">
+                <Link to='/services'> <button className=" btn btn-outline hover:btn-primary">See All Services</button></Link>
             </div>
             <div className='my-20'>
                 <h2 className='text-3xl font-bold text-center mb-10'>Upcoming Service</h2>
@@ -46,11 +45,10 @@ const Home = () => {
             <div className='text-center'>
                 <h2 className='text-3xl font-bold mb-10'>You Can Send Your Message Directly Here</h2>
                 <form className='w-1/2 mx-auto' onSubmit={handleMessage} >
-
                     <input type="text" placeholder="Type here your name" className="input input-bordered w-full mb-2 " required /> <br />
                     <input type="email" placeholder="Type here your email" className="input input-bordered w-full  mb-2" required /> <br />
                     <textarea className="textarea textarea-bordered mb-2 w-full" placeholder="Type here your message" required></textarea> <br />
-                    <button type='submit' className="btn btn-primary">Send Message</button>
+                    <button type='submit' className="btn btn-outline hover:btn-primary">Send Message</button>
                 </form>
             </div>
 

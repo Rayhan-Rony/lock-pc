@@ -1,5 +1,4 @@
-import { data } from 'autoprefixer';
-import React, { useState } from 'react';
+
 import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import UseTitle from '../../layout/hooks/UseTitle';
@@ -7,8 +6,8 @@ import UseTitle from '../../layout/hooks/UseTitle';
 const AddService = () => {
     const services = useLoaderData()
     const servicesCount = services.length
-    console.log(servicesCount)
     UseTitle('Add Services')
+
     const handleAddService = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -18,7 +17,6 @@ const AddService = () => {
         const title = form.title.value;
         const description = form.description.value;
         const price = form.price.value;
-        // console.log(name, id, photo, title, description, price)
         if (id <= servicesCount) {
             return toast.error(`Service Id must be large than ${servicesCount}`)
         }
@@ -39,14 +37,12 @@ const AddService = () => {
             body: JSON.stringify(service)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
-        // console.log(service)
+            .then(data => { })
         toast.success('Service Added Succesfully')
         form.reset()
     }
     return (
         <form onSubmit={handleAddService}>
-
             <div className="hero-content flex-col lg:flex-row-reverse w-full mx-auto">
                 <div className="card flex-shrink-0 w-full  shadow-2xl bg-base-100 p-28">
                     <h1 className="text-3xl font-bold text-center">ADD A SERVICE</h1>
@@ -81,25 +77,16 @@ const AddService = () => {
                                 <span className="label-text">Description</span>
                             </label>
                             <input type="text" name='description' placeholder="Enter Service Description" className="input input-bordered" required />
-
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Service Price</span>
                             </label>
                             <input type="text" name='price' placeholder="Enter Service Price" className="input input-bordered" required />
-
-                        </div>
-                        <div className='text-red-400'>
-                            {/* <p>{error}</p> */}
                         </div>
                         <div className="form-control mt-6">
-
                             <button type='submit' className="btn btn-primary">ADD SERVICE</button>
-
                         </div>
-
-
                     </div>
                 </div>
             </div>

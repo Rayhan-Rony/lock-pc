@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import UseTitle from '../../layout/hooks/UseTitle';
 
 const Register = () => {
     const { signUpWithEmail, updateUserProfile } = useContext(AuthContext)
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+    const navigate = useNavigate()
     const [error, setError] = useState('')
     UseTitle('Register')
     const handleSubmit = (e) => {
@@ -23,6 +27,7 @@ const Register = () => {
                 handleUpdateUserProfile(name, photo)
                 form.reset()
                 toast.success('Sign Up Completed')
+                navigate(from, { replace: true })
             })
             .catch(error => setError(error.message))
 

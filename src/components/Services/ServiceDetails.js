@@ -11,15 +11,15 @@ const ServiceDetails = () => {
     const service = useLoaderData()
     UseTitle('Service-Details')
     const [reviews, setReviews] = useState([])
-    const [laoder, setLoader] = useState(true)
+    const [loader, setLoader] = useState(true)
     const { service_name, img_url, description, price, service_id } = service
-    // console.log(service) 
+
     useEffect(() => {
         fetch(`https://lock-pc-server.vercel.app/reviews/${service_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [service_id, laoder])
-    console.log(reviews)
+    }, [service_id, loader])
+
 
     const handleReview = (e) => {
         e.preventDefault()
@@ -27,7 +27,7 @@ const ServiceDetails = () => {
         const name = form.name.value;
         const email = form.email.value;
         const message = form.message.value;
-        // console.log(name, email, message, photoURL)
+
         const { photoURL } = user
         const reviewer = {
             name: name,
@@ -50,13 +50,12 @@ const ServiceDetails = () => {
                     setLoader(false)
                 }
 
-                console.log(data)
             })
 
         form.reset()
         toast.success('Reviews Added Successfully')
+        setLoader(true)
     }
-
 
 
     return (

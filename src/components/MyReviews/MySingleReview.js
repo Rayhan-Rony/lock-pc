@@ -2,24 +2,11 @@ import { Link } from "react-router-dom";
 
 
 const MySingleReview = ({ myReview, handleDelete }) => {
-    // const []
-    console.log(myReview)
+
+
     const { _id, message, service_name } = myReview
 
-    // const handleDelete = (id) => {
-    //     console.log(id)
-    //     fetch(`https://lock-pc-server.vercel.app/reviews/${id}`, {
-    //         method: 'DELETE',
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => console.log(data))
 
-    // }
-    // const handleUpdateReviews = (id) => {
-    //     console.log(id)
-
-
-    // }
     return (
         <div className="overflow-x-auto w-full  mt-5">
 
@@ -48,27 +35,9 @@ const MySingleReview = ({ myReview, handleDelete }) => {
                         </td>
 
                         <td>{message}</td>
-                        {/* <th>
-                            <button className="btn btn-ghost btn-xs">details</button>
-                        </th> */}
+
                     </tr>
-
-
-
-
-
                 </tbody>
-                {/* 
-        <tfoot>
-            <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Job</th>
-                <th>Favorite Color</th>
-                <th></th>
-            </tr>
-        </tfoot> */}
-
             </table>
             <div className='text-end'>
                 <Link to={`/updatereviews/${_id}`}><button className="btn btn-primary btn-xs mr-4">Edit Review</button></Link>

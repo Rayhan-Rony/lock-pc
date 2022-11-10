@@ -1,21 +1,18 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { Navigate, useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import UseTitle from '../../layout/hooks/UseTitle';
 
 const UpdateMyReviews = () => {
-    const { id } = useParams()
-    console.log(id)
-    // const location = useLocation()
     const { user } = useContext(AuthContext)
+    const { id } = useParams()
     UseTitle('Update My Reviews')
-    // console.log(user)
+
     const handleReviewUpdate = (e) => {
         e.preventDefault()
         const form = e.target;
         const message = form.message.value;
-        // console.log(message)
         fetch(`https://lock-pc-server.vercel.app/reviews/${id}`, {
             method: 'PATCH',
             headers: {
@@ -25,18 +22,14 @@ const UpdateMyReviews = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.modifiedCount > 0) {
                     form.reset()
                     toast.success('updated successfully')
                 }
             })
-
-
-
     }
     return (
-        <div className='mt-4'>
+        <div className='mt-4 min-h-screen ' >
             <h1 className='text-center font-bold text-3xl mb-4'>Update Your Review</h1>
             <form onSubmit={handleReviewUpdate}>
                 <input type="text" name='name' readOnly defaultValue={user?.displayName} className="input w-1/2 mb-3 input-bordered" />
@@ -47,7 +40,7 @@ const UpdateMyReviews = () => {
                 </div>
             </form>
 
-        </div>
+        </div >
     );
 };
 

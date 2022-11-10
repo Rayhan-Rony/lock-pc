@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SingleReview = ({ review }) => {
-    console.log(review)
+
     const { photo, name, message } = review
     return (
 
@@ -25,7 +25,7 @@ const SingleReview = ({ review }) => {
                             <div className="flex items-center space-x-3">
                                 <div className="avatar">
                                     <div className="mask mask-squircle w-12 h-12">
-                                        <img src={photo} alt="Avatar Tailwind CSS Component" />
+                                        <img src={photo} alt="Img" />
                                     </div>
                                 </div>
                                 <div className=''>
@@ -34,28 +34,11 @@ const SingleReview = ({ review }) => {
                                 </div>
                             </div>
                         </td>
-
                         <td>{message}</td>
-                        {/* <th>
-                        <button className="btn btn-ghost btn-xs">details</button>
-                    </th> */}
                     </tr>
 
-
-
-
-
                 </tbody>
-                {/* 
-            <tfoot>
-                <tr>
-                    <th></th>
-                    <th>Name</th>
-                    <th>Job</th>
-                    <th>Favorite Color</th>
-                    <th></th>
-                </tr>
-            </tfoot> */}
+
 
             </table>
         </div>

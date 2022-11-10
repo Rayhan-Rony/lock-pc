@@ -7,12 +7,12 @@ import UseTitle from '../../layout/hooks/UseTitle';
 
 const Login = () => {
     const { logInWithEmail, loginWithGoogle } = useContext(AuthContext)
+    const [error, setError] = useState('')
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
     const navigate = useNavigate()
-    const [error, setError] = useState('')
     UseTitle('Log in')
-    // console.log(user)
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -71,9 +71,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button onClick={handleSignInWithGoogle} className="btn btn-primary">Log With Google</button>
                         </div>
-                        {/* <div className="form-control mt-6">
-                            <button onClick={handleSignInWithGitHub} className="btn btn-primary">Log With GitHub</button>
-                        </div> */}
+
                     </div>
                 </div>
             </div>

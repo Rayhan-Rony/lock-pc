@@ -7,7 +7,7 @@ const MyReviews = () => {
     const { user } = useContext(AuthContext)
     const [myReviews, setMyReviews] = useState([])
     UseTitle('My Reviews')
-    // console.log(user)
+
     useEffect(() => {
         fetch(`https://lock-pc-server.vercel.app/reviews?email=${user?.email}`)
             .then(res => res.json())
@@ -15,13 +15,13 @@ const MyReviews = () => {
     }, [user?.email])
 
     const handleDelete = (id) => {
-        console.log(id)
+
         fetch(`https://lock-pc-server.vercel.app/reviews/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+
                 if (data.deletedCount > 0) {
                     const remaining = myReviews.filter(rv => rv._id !== id)
                     setMyReviews(remaining)
@@ -29,7 +29,7 @@ const MyReviews = () => {
             })
 
     }
-    // console.log(myReviews)
+
     return (
         <div className='min-h-screen '>
             {
