@@ -9,14 +9,14 @@ const MyReviews = () => {
     UseTitle('My Reviews')
     // console.log(user)
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`https://lock-pc-server.vercel.app/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setMyReviews(data))
     }, [user?.email])
 
     const handleDelete = (id) => {
         console.log(id)
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://lock-pc-server.vercel.app/reviews/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

@@ -8,7 +8,7 @@ const MySingleReview = ({ myReview, handleDelete }) => {
 
     // const handleDelete = (id) => {
     //     console.log(id)
-    //     fetch(`http://localhost:5000/reviews/${id}`, {
+    //     fetch(`https://lock-pc-server.vercel.app/reviews/${id}`, {
     //         method: 'DELETE',
     //     })
     //         .then(res => res.json())

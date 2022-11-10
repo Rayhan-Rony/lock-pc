@@ -15,7 +15,7 @@ const ServiceDetails = () => {
     const { service_name, img_url, description, price, service_id } = service
     // console.log(service) 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${service_id}`)
+        fetch(`https://lock-pc-server.vercel.app/reviews/${service_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [service_id, laoder])
@@ -37,7 +37,7 @@ const ServiceDetails = () => {
             service_id: service_id,
             service_name: service_name
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://lock-pc-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -18,18 +18,18 @@ export const router = createBrowserRouter([{
         {
             path: '/',
             element: <Home></Home>,
-            loader: () => fetch('http://localhost:5000')
+            loader: () => fetch('https://lock-pc-server.vercel.app')
 
         },
         {
             path: '/services',
             element: <Services></Services>,
-            loader: () => fetch('http://localhost:5000/services')
+            loader: () => fetch('https://lock-pc-server.vercel.app/services')
         },
         {
             path: '/services/:id',
             element: <ServiceDetails></ServiceDetails>,
-            loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+            loader: ({ params }) => fetch(`https://lock-pc-server.vercel.app/services/${params.id}`),
 
         },
         {
@@ -47,7 +47,7 @@ export const router = createBrowserRouter([{
         {
             path: '/addservice',
             element: <PrivateRoute><AddService></AddService></PrivateRoute>,
-            loader: () => fetch('http://localhost:5000/services')
+            loader: () => fetch('https://lock-pc-server.vercel.app/services')
         },
         {
             path: '/myreviews',

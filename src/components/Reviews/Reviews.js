@@ -6,7 +6,7 @@ const Reviews = ({ reviews }) => {
     // console.log(service_id)
     // const [reviews, setReviews] = useState()
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/reviews/${service_id}`)
+    //     fetch(`https://lock-pc-server.vercel.app/reviews/${service_id}`)
     //         .then(res => res.json())
     //         .then(data => setReviews(data))
     // }, [service_id])

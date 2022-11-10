@@ -16,7 +16,7 @@ const UpdateMyReviews = () => {
         const form = e.target;
         const message = form.message.value;
         // console.log(message)
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://lock-pc-server.vercel.app/reviews/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
