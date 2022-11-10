@@ -29,7 +29,7 @@ const Nav = () => {
                 </div>
                 <Link to='/' className="btn btn-ghost normal-case text-2xl font-extrabold">Lock Pc</Link>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to='/services'>Services</Link></li>
                     <li><Link to='/blogs'>Blogs</Link></li>

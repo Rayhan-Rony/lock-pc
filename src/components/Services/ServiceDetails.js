@@ -2,20 +2,23 @@ import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import UseTitle from '../../layout/hooks/UseTitle';
 import Reviews from '../Reviews/Reviews';
 
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext)
     const service = useLoaderData()
+    UseTitle('Service-Details')
     const [reviews, setReviews] = useState([])
+    const [laoder, setLoader] = useState(true)
     const { service_name, img_url, description, price, service_id } = service
     // console.log(service) 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews/${service_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [service_id])
+    }, [service_id, laoder])
     console.log(reviews)
 
     const handleReview = (e) => {
@@ -43,9 +46,9 @@ const ServiceDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // if (data.acknowledged) {
-
-                // }
+                if (data.acknowledged) {
+                    setLoader(false)
+                }
 
                 console.log(data)
             })

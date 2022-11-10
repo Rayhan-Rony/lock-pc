@@ -33,7 +33,7 @@ const MyReviews = () => {
     return (
         <div className='min-h-screen '>
             {
-                myReviews.length === 0 ? <h1 className='text-3xl font-extrabold mt-96 mb-96 text-center my-4'>No Reviews were added!!!</h1> : <h1 className='text-3xl font-extrabold  text-center my-4'>Here Is Your Reviews!!!</h1>
+                myReviews.length === 0 ? <h1 className='text-3xl font-extrabold flex align-middle justify-center text-center'>No Reviews were added!!!</h1> : <h1 className='text-3xl font-extrabold  text-center my-4'>Here Is Your Reviews!!!</h1>
             }
             {
                 myReviews?.map(myReview => <MySingleReview key={myReview._id} handleDelete={handleDelete} myReview={myReview}></MySingleReview>)
